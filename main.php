@@ -5,15 +5,18 @@ require_once("new-connection.php");
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CodingDojo Wall Main</title>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>The Wall Main</title>
+	<?php
+		include('partials/_html_header.php');
+	?>
 </head>
 <body>
-	<div id = "wrapper">
+<?php
+	include('partials/_navbar.php');
+?>
+	<div id ="main_cont"class="container">
 		<div id="header">
-			<h2>CodingDojo Wall</h2>
-			<p>Welcome <?=$_SESSION['logged_user']['first_name']?></p>
+			<h1>Welcome <?=$_SESSION['logged_user']['first_name']?></h1><br>
 		</div>
 		<div id = "post">
 			<h4>Post a message</h4>
@@ -24,12 +27,11 @@ require_once("new-connection.php");
 			</form>
 		</div>  <!-- end of post-->
 <?php	$message_query = "SELECT users.first_name, users.last_name, messages.message, messages.created_at, messages.id
-						FROM users 
-						LEFT JOIN messages ON messages.user_id = users.id
+						FROM messages 
+						LEFT JOIN users ON messages.user_id = users.id
 						ORDER BY messages.created_at DESC";
 		$messages = mysqli_query($connection, $message_query);
 		$messages = $messages->fetch_all();
-
 		if(isset($messages))
 		{ ?>
 		<div id="print_messages">
@@ -68,5 +70,9 @@ require_once("new-connection.php");
 		</div>
 <?php	} ?>
 	</div> <!-- end of wrapper -->
+<?php
+		include('partials/_html_footer.php');
+?>
+
 </body>
 </html>

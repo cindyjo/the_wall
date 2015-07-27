@@ -2,6 +2,7 @@
 session_start();
 require_once("new-connection.php");
 global $connection;
+date_default_timezone_set('America/Los_Angeles');
 
 // var_dump($_POST);
 // die();
@@ -74,7 +75,7 @@ if(isset($_POST['action']) && $_POST['action'] == "signup")
 	if(count($signup_errors) > 0)
 	{
 		$_SESSION['signup_errors'] = $signup_errors;
-		header("Location: signup.php");
+		header("Location: index.php");
 		exit();
 	}
 	else 

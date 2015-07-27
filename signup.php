@@ -7,14 +7,16 @@ session_start();
 <head>
 	<title>CodingDojo Wall Sign-up</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<?php
+		include('partials/_html_header.php');
+	?>
+</head>
 </head>
 <body>
+<?php
+	include('partials/_navbar.php');
+?>
 	<div id = "wrapper">
-		<div id="header">
-			<h2>CodingDojo Wall</h2>
-			<p>Welcome</p>
-		</div>
 		<div id = "signup_page">
 			<h2>Join CodingDojo Wall.</h2>
 			<form action="process.php" method="post">
