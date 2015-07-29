@@ -11,21 +11,47 @@ require_once("new-connection.php");
 	?>
 </head>
 <body>
-<?php
-	include('partials/_navbar.php');
-?>
-	<div id ="main_cont"class="container">
-		<div id="header">
-			<h1>Welcome <?=$_SESSION['logged_user']['first_name']?></h1><br>
-		</div>
-		<div id = "post">
-			<h4>Post a message</h4>
-			<form action="process.php" method="post">
-				<input type="hidden" name="action" value="post_message">
-				<textarea name="user_message"></textarea>
-				<input id="post_submit" type="submit" value="Post a message">
-			</form>
-		</div>  <!-- end of post-->
+	<nav id="main_nav" class="navbar  navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	  				<span class="sr-only">Toggle navigation</span>
+	  				<span class="icon-bar"></span>
+	  				<span class="icon-bar"></span>
+	  				<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">The Wall</a>
+			</div>
+
+			<div class="navbar-right">
+	  			<div id="navbar" class="collapse navbar-collapse">
+	        		<ul class="nav navbar-nav">
+	        			<li><a href="#">Welcome <?=$_SESSION['logged_user']['first_name']?>!</a></li>
+	          			<li><a href="/">Logout</a></li>
+	        		</ul>
+	  			</div>
+	  		</div>
+	  	</div>
+	</nav>
+	<div id ="main_cont" class="container">
+		<div class ="row">
+			<div class="col-md-12">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<h3 class="panel-title">Post a message</h3>
+					</div><!-- end of panel-heading -->
+					<div class="panel-body">
+						<form action="process.php" method="post">
+							<input type="hidden" name="action" value="post_message">
+						  	<div class="form-group">
+						    	<textarea class="form-control" rows="2" name="user_message" placeholder="Write something..."></textarea>
+						  	</div>
+						 	<button type="submit" class="btn btn-default btn-xs pull-right">Post a message</button>
+						</form>
+					</div> <!-- end of panel-body -->
+				</div> <!-- end of panel -->
+			</div> <!-- end of col -->
+		</div> <!-- end of row -->
 <?php	$message_query = "SELECT users.first_name, users.last_name, messages.message, messages.created_at, messages.id
 						FROM messages 
 						LEFT JOIN users ON messages.user_id = users.id
@@ -34,42 +60,62 @@ require_once("new-connection.php");
 		$messages = $messages->fetch_all();
 		if(isset($messages))
 		{ ?>
-		<div id="print_messages">
+
 <?php 		foreach($messages AS $value)
 			{ 
 				$comment_query = "SELECT users.first_name, users.last_name, comments.comment, comments.created_at, messages.id
-								FROM comments
-								LEFT JOIN messages on comments.message_id = messages.id
-								LEFT JOIN users on comments.user_id = users.id
-								WHERE comments.message_id = '{$value[4]}'
-								ORDER BY comments.created_at ASC";
+									FROM comments
+									LEFT JOIN messages on comments.message_id = messages.id
+									LEFT JOIN users on comments.user_id = users.id
+									WHERE comments.message_id = '{$value[4]}'
+									ORDER BY comments.created_at ASC";
 
 				$comments = mysqli_query($connection, $comment_query);
 				$comments = $comments->fetch_all();		
-?>
-				<h4><?=$value[0]?> <?=$value[1]?> <?= date('F jS Y', strtotime($value[3]))?></h4>
-				<p><?=$value[2]?></p>		
-				<div id="comments">
-<?php				if(isset($comments))
-					{
-						foreach($comments AS $comment)
-						{ ?>
-							<h5><?=$comment[0]?> <?=$comment[1]?> <?= date('F jS Y', strtotime($comment[3]))?></h5>
-							<p class="comment"><?= $comment[2]?></p>
-<?php					}
-					} 	?>				
-					<p id = "comment_title">Post a comment</p>
-					<form action="process.php" method="post">
-						<input type="hidden" name="action" value="post_comment">
-						<input type="hidden" name="message_id" value="<?=$value[4]?>">
-						<textarea name = "user_comment"></textarea>
-						<input id="comment_submit" type="submit" value="Post a comment">
-					</form>
-				</div>
-<?php		} ?>			
-		</div>
-<?php	} ?>
-	</div> <!-- end of wrapper -->
+?>						
+				<div class ="row">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<ul class="list-inline">
+									<li><span class ="glyphicon glyphicon-comment"></span></li>
+									<li><h4><?=$value[0]?> <?=$value[1]?></h4></li>
+								</ul>
+								<p><small><?= date('F jS Y', strtotime($value[3]))?></small></p>
+								<hr>
+								<p><?=$value[2]?></p>	
+							</div><!-- end of panel-body -->
+					
+							<div class="panel-footer">
+
+<?php							if(isset($comments))
+								{
+									foreach($comments AS $comment)
+									{ ?>
+										<ul class="list-inline">
+											<li><span class ="glyphicon glyphicon-pencil"></span></li>
+											<li><h5><?=$comment[0]?> <?=$comment[1]?></h5></li>
+										<p class="comment"><?= $comment[2]?></p>
+										<p><small><?= date('F jS Y', strtotime($comment[3]))?></small></p>
+<?php								}
+								} 	?>				
+								<p id = "comment_title">Post a comment</p>
+								<form action="process.php" method="post">
+									<input type="hidden" name="action" value="post_comment">
+									<input type="hidden" name="message_id" value="<?=$value[4]?>">
+									<textarea name = "user_comment"></textarea>
+									<input id="comment_submit" type="submit" value="Post a comment">
+								</form>
+							</div><!-- end of panel-footer -->
+						</div><!-- end of panel -->
+					</div><!-- end of col -->
+				</div><!-- end of row -->
+<?php		}
+		} ?><!-- end of isset($messages) -->
+	</div> <!-- end of container -->
+
+
+
 <?php
 		include('partials/_html_footer.php');
 ?>

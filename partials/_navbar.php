@@ -7,14 +7,13 @@
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/">The Wall</a>
+			<a class="navbar-brand" href="#">The Wall</a>
 		</div>
 
 		<div class="navbar-right">
   			<div id="navbar" class="collapse navbar-collapse">
         		<ul class="nav navbar-nav">
-          			<li><a href="#">Welcome</a></li>
-          			<li><a href="#about">Logout</a></li>
+          			<li><a href="/">Logout</a></li>
         		</ul>
   			</div>
   		</div>

@@ -37,13 +37,10 @@ h4{
 	margin-top: 50px;
 	background-color: #F3F0EE;
 	width: 100%;
-	padding: 0px 50px 60px;
+	padding: 20px 50px 60px;
 }
 
-#post_submit{
-	width: 120px;
-	margin-left: 730px;
-}
+
 #comment_submit{
 	width: 120px;
 	margin-left: 600px;
@@ -52,11 +49,7 @@ h4{
 a {
 	text-decoration: none;
 }
-#post textarea {
-	width: 850px;
-	height: 50px;
-	overflow: scroll;
-}
+
 #signup_page form {
 	margin-left: 50px;
 	margin-top: 30px;
@@ -70,30 +63,35 @@ a {
 	color: green;
 }
 
-#print_messages p{
+/*#print_messages p{
 	margin-left: 30px;
 	margin-bottom: 30px;
-}
+}*/
+
 #comments textarea {
 	width: 720px;
 	height: 40px;
 	overflow: scroll;
 }
 
-#comments, #comments form {
+/*#comments, #comments form {
 	margin-left: 30px;
 	color: blue;
-}
-h5 {
+}*/
+
+/*h5 {
 	margin-bottom: 10px;
-}
-#comments_title {
+}*/
+
+/*#comments_title {
 	font-size: .9em;
 	margin-bottom: 10px;
-}
-.comment {
+}*/
+
+/*.comment {
 	font-size: .85em;
-}
+}*/
+
 /*footer */
 #footer{
 	background-color: #3e2723;
