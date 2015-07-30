@@ -6,20 +6,15 @@
 .navbar-brand:hover { 
 	color: #d7ccc8 ;
 }
-#panel {
-	background: #EDE3D3;
-}
 #main_nav{
 	color: #bcaaa4;
 	background-color: #4e342e;
 }
-#bg{
-	background: url('/static/wall_1.jpg') no-repeat center center;
-	background-size: 100% 100%;
-	height: 350px;
-	margin-top: 50px;
+a {
+	text-decoration: none;
 }
-/* Welcome pate, jumbotron styling*/
+
+/* Welcome page, jumbotron styling*/
 #welcome_cont {
 	padding-bottom: 60px;
 }
@@ -29,14 +24,13 @@
 #jumbo h1{
 	color: #2B1B18;
 }
-#panel-foot {
-	background-color: #FCFAF8;
+#bg{
+	background: url('/static/wall_1.jpg') no-repeat center center;
+	background-size: 100% 100%;
+	height: 350px;
+	margin-top: 50px;
 }
 
-
-h4{
-	margin-bottom: 10px;
-}
 /*main page styling*/
 #main_cont{
 	margin-top: 50px;
@@ -44,31 +38,22 @@ h4{
 	width: 100%;
 	padding: 20px 50px 60px;
 }
-
-
-
-a {
-	text-decoration: none;
+h4{
+	margin-bottom: 10px;
 }
-
-#signup_page form {
-	margin-left: 50px;
-	margin-top: 30px;
-}
-.error {
-	display: block;
-	font-size: .7em;
-	color: red;
-}
-.success {
-	color: green;
-}
-
 #comments {
 	margin-left: 20px;
 }
 
-/*footer */
+/*panel styling*/
+#panel {
+	background: #EDE3D3;
+}
+#panel-foot {
+	background-color: #FCFAF8;
+}
+
+/*footer styling*/
 #footer{
 	background-color: #3e2723;
 	padding-top: 15px;
@@ -76,7 +61,15 @@ a {
 	text-align: center;
 	color: #a1887f;
 }
-
-
+/*login and registration messages*/
+.error {
+	display: block;
+	font-size: .8em;
+	color: red;
+}
+.success {
+	font-size: .7em;
+	color: green;
+}
 
 

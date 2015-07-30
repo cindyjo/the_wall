@@ -41,6 +41,15 @@ require_once("new-connection.php");
 						<h3 class="panel-title">Post a message</h3>
 					</div><!-- end of panel-heading -->
 					<div class="panel-body">
+<?php 					if(isset($_SESSION['post_errors']))
+						{
+							foreach($_SESSION['post_errors'] AS $error)
+							{
+?>								<p class="error">*** <?= $error ?></p>	
+<?php						}
+							unset($_SESSION['post_errors']);
+						}
+?>	
 						<form action="process.php" method="post">
 							<input type="hidden" name="action" value="post_message">
 						  	<div class="form-group">
@@ -101,6 +110,15 @@ require_once("new-connection.php");
 										</div>
 <?php								}
 								} 	?>				
+<?php 							if(isset($_SESSION['comment_errors']))
+								{
+									foreach($_SESSION['comment_errors'] AS $error)
+									{
+?>										<p class="error">*** <?= $error ?></p>	
+<?php								}
+									unset($_SESSION['comment_errors']);
+								}
+?>	
 								<form action="process.php" method="post">
 									<input type="hidden" name="action" value="post_comment">
 									<input type="hidden" name="message_id" value="<?=$value[4]?>">
@@ -117,9 +135,6 @@ require_once("new-connection.php");
 <?php		}
 		} ?><!-- end of isset($messages) -->
 	</div> <!-- end of container -->
-
-
-
 <?php
 		include('partials/_html_footer.php');
 ?>

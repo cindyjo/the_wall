@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +20,7 @@ session_start();
 	  				<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#">The Wall</a>
-			</div>
+			</div> <!-- end of navbar-header -->
 
 			<div class="navbar-right">
 	  			<div id="navbar" class="collapse navbar-collapse">
@@ -29,14 +28,16 @@ session_start();
 	          			<li><a href="/">Logout</a></li>
 	        		</ul>
 	  			</div>
-	  		</div>
-	  	</div>
-	</nav>		
+	  		</div> <!-- navbar-right -->
+	  	</div> <!-- end of container -->
+	</nav> <!-- enn of nav -->
+
     <div id ="bg" class="jumbotron" >
     	<div id ="jumbo" class="container">
      		<h1>Welcome to the Wall</h1>
     	</div>
-    </div>		
+    </div> <!-- end jumbotron -->	
+
 	<div id="welcome_cont" class="container">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-1">
@@ -71,7 +72,7 @@ session_start();
 				</div>	
 				<button type="submit" class="btn btn-default pull-right">Log in</button>
 			</form>
-			</div>  <!-- end column -->
+			</div>  <!-- end of column -->
 
 			<div class="col-md-4 col-md-offset-2">
 				<h4>New to the Wall?</h4>
@@ -116,9 +117,5 @@ session_start();
 	<?php
 		include('partials/_html_footer.php');
 	?>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
