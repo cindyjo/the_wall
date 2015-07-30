@@ -36,8 +36,8 @@ require_once("new-connection.php");
 	<div id ="main_cont" class="container">
 		<div class ="row">
 			<div class="col-md-12">
-				<div class="panel panel-danger">
-					<div class="panel-heading">
+				<div class="panel panel-default">
+					<div id="panel" class="panel-heading">
 						<h3 class="panel-title">Post a message</h3>
 					</div><!-- end of panel-heading -->
 					<div class="panel-body">
@@ -86,7 +86,7 @@ require_once("new-connection.php");
 								<p><?=$value[2]?></p>	
 							</div><!-- end of panel-body -->
 					
-							<div class="panel-footer"> 
+							<div id ="panel-foot" class="panel-footer"> 
 <?php							if(isset($comments))
 								{
 									foreach($comments AS $comment)
