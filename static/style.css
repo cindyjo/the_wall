@@ -41,10 +41,6 @@ h4{
 }
 
 
-#comment_submit{
-	width: 120px;
-	margin-left: 600px;
-}
 
 a {
 	text-decoration: none;
@@ -63,34 +59,9 @@ a {
 	color: green;
 }
 
-/*#print_messages p{
-	margin-left: 30px;
-	margin-bottom: 30px;
-}*/
-
-#comments textarea {
-	width: 720px;
-	height: 40px;
-	overflow: scroll;
+#comments {
+	margin-left: 20px;
 }
-
-/*#comments, #comments form {
-	margin-left: 30px;
-	color: blue;
-}*/
-
-/*h5 {
-	margin-bottom: 10px;
-}*/
-
-/*#comments_title {
-	font-size: .9em;
-	margin-bottom: 10px;
-}*/
-
-/*.comment {
-	font-size: .85em;
-}*/
 
 /*footer */
 #footer{

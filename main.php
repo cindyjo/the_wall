@@ -86,8 +86,7 @@ require_once("new-connection.php");
 								<p><?=$value[2]?></p>	
 							</div><!-- end of panel-body -->
 					
-							<div class="panel-footer">
-
+							<div class="panel-footer"> 
 <?php							if(isset($comments))
 								{
 									foreach($comments AS $comment)
@@ -95,18 +94,23 @@ require_once("new-connection.php");
 										<ul class="list-inline">
 											<li><span class ="glyphicon glyphicon-pencil"></span></li>
 											<li><h5><?=$comment[0]?> <?=$comment[1]?></h5></li>
-										<p class="comment"><?= $comment[2]?></p>
-										<p><small><?= date('F jS Y', strtotime($comment[3]))?></small></p>
+										</ul>
+										<div id="comments">
+											<p><?= $comment[2]?></p>
+											<p><small><?= date('F jS Y', strtotime($comment[3]))?></small></p>
+										</div>
 <?php								}
 								} 	?>				
-								<p id = "comment_title">Post a comment</p>
 								<form action="process.php" method="post">
 									<input type="hidden" name="action" value="post_comment">
 									<input type="hidden" name="message_id" value="<?=$value[4]?>">
-									<textarea name = "user_comment"></textarea>
-									<input id="comment_submit" type="submit" value="Post a comment">
-								</form>
+									<div class="form-group">
+										<textarea class="form-control" rows="1" name = "user_comment" placeholder="Write a comment..."></textarea>
+									</div>
+									<button class="btn btn-default btn-xs pull-right" type="submit">Post a comment</button>
+								</form><br>
 							</div><!-- end of panel-footer -->
+							
 						</div><!-- end of panel -->
 					</div><!-- end of col -->
 				</div><!-- end of row -->
