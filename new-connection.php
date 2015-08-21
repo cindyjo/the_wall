@@ -2,15 +2,14 @@
 /*--------------------BEGINNING OF THE CONNECTION PROCESS------------------*/
 //define constants for db_host, db_user, db_pass, and db_database
 //adjust the values below to match your database settings
-define('DB_HOST', 'aa1iekmlmlhpmw.cawy88hpck4t.us-west-2.rds.amazonaws.com:3306');
-define('DB_USER', 'cindyjo0718');
-define('DB_PASS', 'Sakura^6'); //set DB_PASS as 'root' if you're using mac
-define('DB_DATABASE', 'ebdb'); //make sure to set your database
+define('DB_HOST', $OPENSHIFT_MYSQL_DB_HOST);
+define('DB_USER', 'admin7Qi8rJS');
+define('DB_PASS', 'U7aycnqwGaru'); //set DB_PASS as 'root' if you're using mac
+define('DB_DATABASE', 'thewall');
+define('DB_PORT', $OPENSHIFT_MYSQL_DB_PORT) //make sure to set your database
 
 //connect to database host
-$connection = new mysqli(DB_HOST, DB_USER, DB_PASS);
-$link = mysql_connect(DB_HOST, DB_USER,DB_PASS, DB_DATABASE);
-mysql_select_db(DB_DATABASE);
+$connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_DATABASE, DB_PORT);
 
 /*-------------------------END OF CONNECTION PROCESS!---------------------*/
 
